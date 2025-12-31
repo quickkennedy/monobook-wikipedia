@@ -6,7 +6,7 @@
 [![Project license](https://img.shields.io/github/license/adlerzei/old-wiki)](https://github.com/adlerzei/old-wiki/blob/main/LICENSE)
 
 ## What?
-This is a extension for common web browsers coded using the WebExtensions API.
+This is an extension for common web browsers coded using the WebExtensions API.
 
 ## Main Features
 This extension simply changes the Wikipedia user interface to the beautiful old vector layout. It is also applied to the other international Wikimedia pages.
