@@ -3,7 +3,7 @@
 // for compatibility reasons
 var browser = chrome;
 
-var vectorSkinActivation = true;
+var monobookSkinActivation = true;
 var autoReload = true;
 var hideURLQuery = true;
 
@@ -53,7 +53,7 @@ function onSettingsLoaded(items) {
     updateEnabledRulesets();
 
     if (autoReload) {
-		if (vectorSkinActivation) {
+		if (monobookSkinActivation) {
 			addSkinParamToAllTabs();
 		} else {
 			removeSkinParamFromAllTabs();
@@ -67,7 +67,7 @@ function onSettingsLoaded(items) {
  * @param {[key: string]: any} items The items from the local storage.
  */
 function parseSettings(items) {
-    vectorSkinActivation = items.hasOwnProperty('vector_skin_activation') ? items.vector_skin_activation : true;
+    monobookSkinActivation = items.hasOwnProperty('monobook_skin_activation') ? items.monobook_skin_activation : true;
     autoReload = items.hasOwnProperty('auto_reload') ? items.auto_reload : true;
     hideURLQuery = items.hasOwnProperty('hide_url_query') ? items.hide_url_query : true;
 }
@@ -78,7 +78,7 @@ function parseSettings(items) {
  * @param {[key: string]: any} items The items from the local storage.
  */
  function parseChangedSettings(items) {
-    vectorSkinActivation = items.hasOwnProperty('vector_skin_activation') ? items.vector_skin_activation.newValue : true;
+    monobookSkinActivation = items.hasOwnProperty('monobook_skin_activation') ? items.monobook_skin_activation.newValue : true;
     autoReload = items.hasOwnProperty('auto_reload') ? items.auto_reload.newValue : true;
     hideURLQuery = items.hasOwnProperty('hide_url_query') ? items.hide_url_query.newValue : true;
 }
@@ -90,10 +90,10 @@ function updateEnabledRulesets() {
     let disableRulesetIds = [];
     let enableRulesetIds = [];
 
-    if (vectorSkinActivation) {
-        enableRulesetIds.push("apply_vector_skin");
+    if (monobookSkinActivation) {
+        enableRulesetIds.push("apply_monobook_skin");
     } else {
-        disableRulesetIds.push("apply_vector_skin");
+        disableRulesetIds.push("apply_monobook_skin");
     }
 
     browser.declarativeNetRequest.updateEnabledRulesets({
@@ -103,14 +103,14 @@ function updateEnabledRulesets() {
 }
 
 /**
- * Adds the 'useskin=vector' parameter to all tabs that are a Wikipedia page.
+ * Adds the 'useskin=monobook' parameter to all tabs that are a Wikipedia page.
  */
 function addSkinParamToAllTabs() {
     browser.tabs.query({}, function(tabs) {
         tabs.forEach(function(tab) {
             const url = new URL(tab.url);
             if (wikiDomains.some(domain => url.hostname.endsWith(domain))) {
-                url.searchParams['useskin'] = 'vector';
+                url.searchParams['useskin'] = 'monobook';
                 browser.tabs.update(tab.id, { url: url.toString() });
             }
         });
@@ -118,7 +118,7 @@ function addSkinParamToAllTabs() {
 }
 
 /**
- * Removes the 'useskin=vector' parameter from all tabs that are a Wikipedia page.
+ * Removes the 'useskin=monobook' parameter from all tabs that are a Wikipedia page.
  */
 function removeSkinParamFromAllTabs() {
     browser.tabs.query({}, function(tabs) {

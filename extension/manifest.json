@@ -1,10 +1,10 @@
 {
-  "description": "Changes the Wikipedia user interface to the beautiful legacy vector layout. Is also applied to other international Wikimedia pages.",
-  "author": "Christian Zei",
+  "description": "Changes the Wikipedia user interface to the beautiful legacy monobook layout. Is also applied to other international Wikimedia pages.",
+  "author": "quickkennedy",
   "manifest_version": 3,
-  "name": "Old Wiki",
-  "short_name": "OldWiki",
-  "homepage_url": "https://github.com/adlerzei/old-wiki#readme",
+  "name": "Monobook Wikipedia",
+  "short_name": "MonoWiki",
+  "homepage_url": "https://github.com/quickkennedy/monobook-wikipedia#readme",
   "version": "1.5.0",
   "icons": {
     "48": "icons/logo_48.png",
@@ -12,7 +12,7 @@
   },
   "declarative_net_request" : {
     "rule_resources" : [{
-      "id": "apply_vector_skin",
+      "id": "apply_monobook_skin",
       "enabled": true,
       "path": "rules/apply.json"
     }]
@@ -77,7 +77,7 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "oldwiki@adlerzei",
+      "id": "monowiki@quickkennedy",
       "strict_min_version": "113.0"
     }
   }
