@@ -1,22 +1,22 @@
 {
-  "name": "old-wiki",
+  "name": "monobook wikipedia",
   "version": "1.5.0",
-  "description": "This extension simply changes the Wikipedia user interface to the beautiful legacy vector layout. It is also applied to the other international Wikimedia pages.",
+  "description": "This extension simply changes the Wikipedia user interface to the beautiful legacy monobook layout. It is also applied to the other international Wikimedia pages.",
   "dependencies": {
     "@types/chrome": "0.0.127",
     "npm": "^8.18.0"
   },
   "scripts": {
-    "build": "./tools/build.sh"
+    "build": "./build.sh"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adlerzei/old-wiki"
+    "url": "git+https://github.com/quickkennedy/monobook-wikipedia"
   },
   "author": "Christian Zei",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/adlerzei/old-wiki/issues"
+    "url": "https://github.com/quickkennedy/monobook-wikipedia/issues"
   },
-  "homepage": "https://github.com/adlerzei/old-wiki#readme"
+  "homepage": "https://github.com/quickkennedy/monobook-wikipedia#readme"
 }
